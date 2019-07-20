@@ -7,4 +7,14 @@ Each file listed below has a specific purpose that will be described in this REA
 * **arguments.py**: Shows different application scenarios for *required*, *positional* and *key* arguments.
 * **decorators.py**: Show how to create *simple* and *argument ready* decorators, applications and main features.
 
+# Running Scripts:
+It's simple to run, just type:
+
+```$ python <sample_name>.py``` 
+
+and, voilà!
+
+# How to test:
+comming soon.
+
 # Thanks for Read and Support!
