@@ -23,43 +23,49 @@ Lets check it out for common scenarios.
 
 from pathlib import Path
 
+""" 
+    1 - Creating Paths with pathlib 
+"""
 
-""" 1 - Creating Paths with pathlib """
+"""     
+1.1 - Getting some useful presets
+        - Using function cwd() and home() to help handling paths
+"""
 
-# 1.1 - Get current working path
-def get_current_working_dir():
-    return Path.cwd()
-
-curr_dir = get_current_working_dir()
+curr_dir = Path.cwd()
 print('Current Directory: ', curr_dir)
 
-# 1.2 - Get home path
-def get_home_path():
-    return Path.home()
-
-home_dir = get_home_path()
+home_dir = Path.home()
 print('Home Path: ', home_dir, '\n')
 
-# 1.3 - Build inner folder path, inner file path or both
-def create_path(*args):
-    return Path(*args)
+"""     
+1.2 - Building inner folder path, inner file path or both 
+    - Using function Path(*args) its possible to build OS independent paths
+"""
 
-inner_dir = create_path(curr_dir, 'first_folder', 'second_folder')
+# Some Examples creating generic Paths for any OS
+inner_dir = Path(curr_dir, 'first_folder', 'second_folder')
 print('Inner Dir Path-1:', inner_dir)
 
-alternative_inner_dir = create_path(get_current_working_dir(), 'first_folder/second_folder/')
+alternative_inner_dir = Path(curr_dir, 'first_folder/second_folder/')
 print('Inner Dir Path-2:', alternative_inner_dir, '\n')
 
-inner_file = create_path(inner_dir, 'sample.txt')
+inner_file = Path(inner_dir, 'sample.txt')
 print('Inner File Path:', inner_file)
 
-inner_file = create_path(curr_dir, 'first_folder', 'second_folder', 'sample.txt')
+# Straight approach with folders and fle
+inner_file = Path(curr_dir, 'first_folder', 'second_folder', 'sample.txt')
 print('Inner File Straight:', inner_file)
+
+# It is possible to navigate all over path parents
 print("Inner File Parent:", inner_file.parent)
 print("Inner File Grandparent:", inner_file.parent.parent)
 
-""" 2 - Obtaining file attributes from pathlib """
-mult_suffix_file = create_path(curr_dir, 'first_folder', 'test.ext.log')
+""" 
+    2 - Obtaining file attributes from pathlib
+    - There is lots of properties can be usefull for different problems
+"""
+mult_suffix_file = Path(curr_dir, 'first_folder', 'test.ext.log')
 
 print("\nFile Name: ", inner_file.name)
 print("File Exists?", inner_file.exists())
@@ -67,7 +73,10 @@ print("File Stemming: ", inner_file.stem)
 print("File Suffixes: ", mult_suffix_file.suffixes)
 print("File Suffix:", mult_suffix_file.suffix)
 
-""" 3 - Working with paths """
+""" 
+    3 - Working with paths 
+    - It is possible to use Path objects within file context and similar scenarios
+"""
 
 # Read or write to files using Path object can be done with tradicional open
 with open(inner_file, mode="r") as inp_file:
@@ -75,7 +84,7 @@ with open(inner_file, mode="r") as inp_file:
 
 # Pathlib also simplify write and read, 
 # But beware, read works equal, but write will overwrite content 
-# since there is no option for edit type:
+# Since there is no option for edit type:
 
 print("Pathlib Read:", inner_file.read_text())
 inner_file.write_text("Thanks for reading!")
@@ -94,6 +103,6 @@ Also, There are some helpfull blogposts about pathlib usage:
 - https://realpython.com/python-pathlib/#picking-out-components-of-a-path
 - https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f
 
-Thanks for reading and feel free to contrib and leave feedback! 
+Thanks for reading and feel free to contribute or leave some feedback.
 
 """
