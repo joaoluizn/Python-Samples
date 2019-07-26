@@ -9,6 +9,7 @@ Each file listed below has a specific purpose that will be described in this REA
 * **arguments.py**: Shows different application scenarios for *required*, *positional* and *key* arguments.
 * **decorators.py**: Show how to create *simple* and *argument ready* decorators, applications and main features.
 * **os_path.py**: Handle multiplatforms paths with pathlib module, creating paths and manipulating files.
+* **equality.py**: Understanding the difference between '==' and 'is' and curiosities.
 
 # Running Scripts:
 To run any script, just type on terminal:

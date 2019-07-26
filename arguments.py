@@ -1,7 +1,9 @@
 """ General Arguments Types Samples """
 
+
 def hello_arguments(required_one, *args, **kwargs):
-    return f"Required Arg: {required_one}\nPosititonal Args: {args}\nKey Args: {kwargs}\n"
+    return f"Required Arg: {required_one}\nPositional Args: {args}\nKey Args: {kwargs}\n"
+
 
 """ 
 Values are just samples to represent arguments. 
